@@ -3,6 +3,8 @@ import { generateText } from "ai";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
+  const { prompt } = await request.json();
+
   const google = createGoogleGenerativeAI({
     apiKey: process.env.GOOGLE_API_KEY || "",
   });
@@ -16,7 +18,7 @@ export async function POST(request: Request) {
       // },
 
       model: google("gemini-2.5-flash"),
-      prompt: "Write a vegetarian lasagna recipe for 4 people.",
+      prompt, // use user input
     });
 
     return NextResponse.json({ success: true, text });
