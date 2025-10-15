@@ -2,6 +2,14 @@
 # yarn lockfile v1
 
 
+"@ai-sdk/elevenlabs@^1.0.14":
+  version "1.0.14"
+  resolved "https://registry.yarnpkg.com/@ai-sdk/elevenlabs/-/elevenlabs-1.0.14.tgz#d7639e4dc9b5c4215d73cafefd727c584bc40275"
+  integrity sha512-SyE+WpB/d+gJkxNbj5LaLanwCBJ2/mpzvoVhxylFC7AUSADspGymxTI6jC6ja0FUkoF90SyvT3ifXuEbRmEVng==
+  dependencies:
+    "@ai-sdk/provider" "2.0.0"
+    "@ai-sdk/provider-utils" "3.0.12"
+
 "@ai-sdk/gateway@1.0.40":
   version "1.0.40"
   resolved "https://registry.yarnpkg.com/@ai-sdk/gateway/-/gateway-1.0.40.tgz#81a554edbb11b286fb657587710047f169d13b2a"
