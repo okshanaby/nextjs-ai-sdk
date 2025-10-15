@@ -3,13 +3,14 @@ import { streamText } from "ai";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
-  const { prompt } = await request.json();
-
+  
   const google = createGoogleGenerativeAI({
     apiKey: process.env.GOOGLE_API_KEY || "",
   });
-
+  
   try {
+    const { prompt } = await request.json();
+    
     const result = streamText({
       model: google("gemini-2.5-flash"),
       prompt, // use user input
