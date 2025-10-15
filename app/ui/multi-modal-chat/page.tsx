@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useRef } from "react";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
 import Image from "next/image";
+import { useRef, useState } from "react";
 
 export default function MultiModalChatPage() {
   const [input, setInput] = useState("");
@@ -30,7 +30,7 @@ export default function MultiModalChatPage() {
     <div className="flex flex-col w-full max-w-md pt-12 pb-36 mx-auto stretch">
       {error && <div className="text-red-500 mb-4">{error.message}</div>}
 
-      {messages.map((message) => (
+      {messages.map(message => (
         <div key={message.id} className="mb-4">
           <div className="font-semibold">
             {message.role === "user" ? "You:" : "AI:"}
@@ -58,6 +58,8 @@ export default function MultiModalChatPage() {
                     />
                   );
                 }
+
+                // Render PDF files in an iframe
                 if (part.mediaType?.startsWith("application/pdf")) {
                   return (
                     <iframe
@@ -69,6 +71,7 @@ export default function MultiModalChatPage() {
                     />
                   );
                 }
+
                 return null;
               default:
                 return null;
@@ -116,7 +119,7 @@ export default function MultiModalChatPage() {
               id="file-upload"
               type="file"
               className="hidden"
-              onChange={(event) => {
+              onChange={event => {
                 if (event.target.files) {
                   setFiles(event.target.files);
                 }
@@ -129,7 +132,7 @@ export default function MultiModalChatPage() {
             <input
               className="flex-1 dark:bg-zinc-800 p-2 border border-zinc-300 dark:border-zinc-700 rounded shadow-xl"
               value={input}
-              onChange={(e) => setInput(e.target.value)}
+              onChange={e => setInput(e.target.value)}
               placeholder="How can I help you?"
             />
             {status === "submitted" || status === "streaming" ? (
