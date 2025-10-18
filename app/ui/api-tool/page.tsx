@@ -14,7 +14,6 @@ export default function APIToolPage() {
       api: "/api/api-tool",
     }),
   });
-  console.log("🚀 ~ APIToolPage ~ messages:", messages)
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
