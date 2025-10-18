@@ -30,7 +30,9 @@ export async function POST(request: Request) {
       stopWhen: stepCountIs(2),
     });
 
-    return result.toUIMessageStreamResponse();
+    return result.toUIMessageStreamResponse({
+      sendSources: true,
+    });
   } catch (error) {
     console.log("🚀 ~ POST ~ error:", error);
 
